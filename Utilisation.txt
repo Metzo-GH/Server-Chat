@@ -1,0 +1,40 @@
+Tests à Effectuer
+Fonctionnalités REST
+
+    Enregistrer un Token :
+
+curl -X POST "http://localhost:8080/retour/api/tokens/register?token=testToken&nickname=testUser"
+
+Attendu : Réponse "Token et nickname enregistrés avec succès."
+
+Vérifier un Token :
+
+curl "http://localhost:8080/retour/api/tokens/check?token=testToken"
+
+Attendu : Réponse "Nickname associé : testUser"
+
+Arrêter le Serveur TCP :
+
+    curl -X POST "http://localhost:8080/retour/api/tokens/stop-server"
+
+    Attendu : Réponse "Serveur TCP arrêté."
+
+Fonctionnalités TCP
+
+    Connexion et Authentification :
+        Connecte-toi avec Netcat :
+
+    nc localhost 12345
+
+    Envoie un token enregistré (par exemple, testToken).
+    Attendu : Réponse "Authentification réussie. Bonjour, testUser!"
+
+Connexion avec Token Invalide :
+
+    Envoie un token non enregistré.
+    Attendu : Réponse "Token invalide."
+
+Persistance des Tokens :
+
+    Redémarre l’application.
+    Vérifie que les tokens enregistrés avant l’arrêt sont toujours accessibles via /check ou le serveur TCP.
