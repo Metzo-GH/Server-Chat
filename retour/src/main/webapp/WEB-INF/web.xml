@@ -5,13 +5,5 @@
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
 
-  <servlet>
-    <servlet-name>TokenController</servlet-name>
-    <servlet-class>chat.retour.Servlet.TokenController</servlet-class>
-  </servlet>
-  
-  <servlet-mapping>
-    <servlet-name>TokenController</servlet-name>
-    <url-pattern>/api/tokens/*</url-pattern>
-  </servlet-mapping>
+
 </web-app>
